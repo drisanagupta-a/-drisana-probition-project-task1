@@ -4,7 +4,7 @@ const categoryfilter=document.querySelector("#categoryFilter")
 const sortfilter=document.querySelector("#sortFilter")
 const transactionlist=document.querySelector("#transactionList")
 const filtertransactions=()=>{
-    let list=[transactions]
+    let list=[...transactions]
     const searchtext=search.value.toLowerCase().trim()
     const selectedtype=typefilter.value
     const selectedcategory=categoryfilter.value
@@ -60,3 +60,15 @@ search.addEventListener("input",filtertransactions)
 typefilter.addEventListener("change",filtertransactions)
 categoryfilter.addEventListener("change",filtertransactions)
 sortfilter.addEventListener("change",filtertransactions)
+const updatecategories=()=>{
+    const categories=[...new Set(transactions.map(item=>item.category))]
+    categoryfilter.innerHTML='<option value="all">All Categories</option>'
+    categories.forEach(item=>{
+        const option=document.createElement("option")
+        option.value=item
+        option.textContent=item
+        categoryfilter.appendChild(option)
+    })
+}
+updatecategories()
+filtertransactions()
