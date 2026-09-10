@@ -1,0 +1,400 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    font-size:16px;
+}
+body{
+    min-height:100vh;
+    font-family:"DM Sans",sans-serif;
+    background:linear-gradient(135deg,#5657ff,#5c4be8);
+    color:#20205c;
+    overflow-x:hidden;
+}
+header{
+    width:100%;
+    padding:1.75rem 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+}
+.logo{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:1.7rem;
+    font-weight:700;
+    letter-spacing:-.08rem;
+}
+.logo span{
+    color:#b7f35c;
+}
+.login{
+    font-size:.9rem;
+}
+.login a{
+    color:white;
+    font-weight:700;
+    text-decoration:none;
+    border-bottom:.08rem solid white;
+    margin-left:.3rem;
+}
+main{
+    width:88%;
+    max-width:78rem;
+    margin:2rem auto 4rem;
+    display:grid;
+    grid-template-columns:1fr 29rem;
+    gap:5rem;
+    align-items:center;
+}
+.intro{
+    color:white;
+    padding:1rem 0;
+}
+.smalltext{
+    display:inline-block;
+    color:#b7f35c;
+    font-size:.75rem;
+    font-weight:700;
+    letter-spacing:.15rem;
+    margin-bottom:1.25rem;
+}
+h1{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:clamp(3.5rem,6vw,5.2rem);
+    line-height:.95;
+    letter-spacing:-.25rem;
+    margin-bottom:1.75rem;
+}
+h1 span{
+    color:#b7f35c;
+}
+.intro>p{
+    max-width:30rem;
+    font-size:1.1rem;
+    line-height:1.6;
+    color:#e8e7ff;
+}
+.features{
+    display:flex;
+    gap:2rem;
+    margin-top:3.5rem;
+}
+.features>div{
+    display:flex;
+    flex-direction:column;
+    gap:.75rem;
+    font-size:.8rem;
+    line-height:1.4;
+    color:#f4f3ff;
+}
+.icon{
+    width:2.7rem;
+    height:2.7rem;
+    border-radius:.85rem;
+    background:#b7f35c;
+    color:#20205c;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.3rem;
+    font-weight:700;
+}
+.setupcard{
+    background:#fff;
+    border-radius:1.9rem;
+    padding:2.2rem 2.4rem 1.7rem;
+    box-shadow:0 1.5rem 4rem rgba(24,19,96,.25);
+    position:relative;
+    overflow:hidden;
+    animation:cardForward .7s ease;
+}
+.cardtop{
+    display:flex;
+    align-items:center;
+    gap:.9rem;
+    margin-bottom:1.8rem;
+}
+.cardtop>span{
+    font-size:.7rem;
+    font-weight:700;
+    color:#8b8ba8;
+}
+.progress{
+    height:.3rem;
+    flex:1;
+    background:#ececff;
+    border-radius:1rem;
+    overflow:hidden;
+}
+.progress div{
+    width:33%;
+    height:100%;
+    background:#5657ff;
+    border-radius:1rem;
+    transition:width .5s ease;
+}
+h2{
+    font-family:"Space Grotesk",sans-serif;
+    font-size:2rem;
+    line-height:1.08;
+    letter-spacing:-.1rem;
+    margin-bottom:.7rem;
+}
+.cardsubtitle{
+    color:#7b7b99;
+    font-size:.85rem;
+    margin-bottom:1.7rem;
+}
+form{
+    display:flex;
+    flex-direction:column;
+}
+label{
+    font-size:.8rem;
+    font-weight:700;
+    color:#30305e;
+    margin-bottom:.5rem;
+}
+.inputbox{
+    width:100%;
+    height:3.25rem;
+    border:.09rem solid #e3e3ef;
+    border-radius:.9rem;
+    display:flex;
+    align-items:center;
+    padding:0 1rem;
+    margin-bottom:1.2rem;
+    background:#fafaff;
+    transition:.25s ease;
+}
+.inputbox:focus-within{
+    border-color:#5657ff;
+    background:white;
+    box-shadow:0 0 0 .25rem rgba(86,87,255,.08);
+}
+.inputbox input,.inputbox select{
+    width:100%;
+    border:none;
+    outline:none;
+    background:transparent;
+    font-family:"DM Sans",sans-serif;
+    color:#20205c;
+    font-size:.85rem;
+}
+.inputbox input::placeholder{
+    color:#a5a5ba;
+}
+.selectbox span,.balancebox span{
+    font-size:1.1rem;
+    font-weight:700;
+    margin-right:.6rem;
+    color:#5657ff;
+}
+.selectbox select{
+    appearance:none;
+    cursor:pointer;
+}
+.balancebox input{
+    font-size:1.15rem;
+    font-weight:600;
+}
+button{
+    height:3.4rem;
+    border:none;
+    border-radius:1rem;
+    background:#b7f35c;
+    color:#20205c;
+    font-family:"DM Sans",sans-serif;
+    font-size:.9rem;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:.25rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.8rem;
+    transition:.25s ease;
+}
+button span{
+    font-size:1.3rem;
+    transition:.25s ease;
+}
+button:hover{
+    transform:translateY(-.15rem);
+    box-shadow:0 .7rem 1.5rem rgba(183,243,92,.25);
+}
+button:hover span{
+    transform:translateX(.2rem);
+}
+.privacy{
+    text-align:center;
+    margin-top:1.2rem;
+    font-size:.7rem;
+    color:#9999b1;
+}
+.privacy span{
+    color:#5657ff;
+    margin-right:.25rem;
+}
+.floatingshape{
+    position:fixed;
+    border-radius:50%;
+    pointer-events:none;
+}
+.shapeone{
+    width:17rem;
+    height:17rem;
+    background:rgba(183,243,92,.08);
+    right:-6rem;
+    top:5rem;
+}
+.shapetwo{
+    width:11rem;
+    height:11rem;
+    border:.2rem solid rgba(255,255,255,.08);
+    left:-4rem;
+    bottom:2rem;
+}
+
+@keyframes cardForward{
+    0%{
+        opacity:0;
+        transform:translateX(4rem) scale(.96);
+    }
+    100%{
+        opacity:1;
+        transform:translateX(0) scale(1);
+    }
+}
+
+@keyframes cardBack{
+    0%{
+        opacity:0;
+        transform:translateX(-4rem) scale(.96);
+    }
+    100%{
+        opacity:1;
+        transform:translateX(0) scale(1);
+    }
+}
+
+.cardforward{
+    animation:cardForward .5s ease;
+}
+
+.cardback{
+    animation:cardBack .5s ease;
+}
+
+@media(max-width:60rem){
+
+    main{
+        grid-template-columns:1fr;
+        max-width:42rem;
+        gap:3rem;
+    }
+
+    .intro{
+        text-align:center;
+    }
+
+    .intro>p{
+        margin:auto;
+    }
+
+    .features{
+        justify-content:center;
+    }
+
+    .setupcard{
+        width:100%;
+    }
+}
+
+@media(max-width:48rem){
+
+    header{
+        padding:1.4rem 5%;
+    }
+
+    main{
+        width:90%;
+        margin-top:1rem;
+        gap:2.5rem;
+    }
+
+    h1{
+        font-size:clamp(3rem,10vw,4.2rem);
+        letter-spacing:-.18rem;
+    }
+
+    .intro>p{
+        font-size:1rem;
+    }
+
+    .features{
+        gap:1.2rem;
+        margin-top:2.5rem;
+    }
+
+    .features>div{
+        font-size:.72rem;
+    }
+
+    .setupcard{
+        padding:1.8rem 1.7rem 1.5rem;
+        border-radius:1.5rem;
+    }
+
+    h2{
+        font-size:1.8rem;
+    }
+}
+
+@media(max-width:30rem){
+
+    .logo{
+        font-size:1.5rem;
+    }
+
+    .login{
+        display:none;
+    }
+
+    main{
+        width:92%;
+    }
+
+    h1{
+        font-size:3rem;
+    }
+
+    .features{
+        gap:.7rem;
+    }
+
+    .features>div{
+        font-size:.65rem;
+    }
+
+    .icon{
+        width:2.4rem;
+        height:2.4rem;
+        font-size:1.1rem;
+    }
+
+    .setupcard{
+        padding:1.5rem 1.2rem 1.3rem;
+    }
+
+    h2{
+        font-size:1.6rem;
+    }
+
+    .inputbox{
+        height:3.1rem;
+    }
+}

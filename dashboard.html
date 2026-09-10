@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Spendwise</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+<div class="menubutton"><i class="fa-solid fa-bars"></i></div>
+<div class="logo">spendwise<span>.</span></div>
+<nav>
+<a class="active" href="#"><i class="fa-solid fa-house"></i></a>
+<a href="#"><i class="fa-solid fa-receipt"></i></a>
+<a href="#"><i class="fa-solid fa-chart-pie"></i></a>
+<a href="#"><i class="fa-solid fa-tags"></i></a>
+<a href="#"><i class="fa-solid fa-gear"></i></a>
+</nav>
+<div class="sidetext">
+<span>Track.</span>
+<span>Save.</span>
+<span>Grow.</span>
+</div>
+</aside>
+<main class="main">
+<div class="topbar">
+<div class="mobilelogo">spendwise<span>.</span></div>
+<div class="dates">
+<i class="fa-regular fa-calendar"></i>
+<span>01 Sep 2025</span>
+<span>−</span>
+<span>30 Sep 2025</span>
+<i class="fa-solid fa-chevron-down"></i>
+</div>
+<div class="profile">
+<i class="fa-solid fa-user"></i></div>
+</div>
+<section class="summary">
+<div class="summarycard balance">
+<div class="cardhead">
+<div class="moneyicon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+<div>
+<p>Total Balance</p>
+</div>
+<div class="change positive">
+<i class="fa-solid fa-arrow-up"></i> 12%</div>
+</div>
+<h1 id="totalBalance"></h1>
+<span>vs last month</span>
+</div>
+<div class="summarycard income">
+<div class="cardhead">
+<div class="moneyicon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+<div>
+<p>Total Income</p>
+</div>
+<div class="change positive">
+<i class="fa-solid fa-arrow-up"></i> 8%
+</div>
+</div>
+<h1 id="totalIncome"></h1>
+<span>vs last month</span></div>
+<div class="summarycard expense">
+<div class="cardhead">
+<div class="moneyicon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+<div>
+<p>Total Expenses</p>
+</div>
+<div class="change negative">
+<i class="fa-solid fa-arrow-down"></i> 5%
+</div>
+</div>
+<h1 id="totalExpense"></h1>
+<span>vs last month</span>
+</div></section>
+<section class="middle">
+<div class="chartcard">
+<div class="sectionhead">
+<h2>Monthly Overview</h2>
+<div class="legend">
+<span><i></i>Income</span>
+<span><i></i>Expenses</span></div></div>
+<div class="chart">
+<div class="chartline">
+<span>50k</span>
+<div></div></div>
+<div class="chartline">
+<span>30k</span>
+<div></div>
+</div>
+<div class="chartline">
+<span>10k</span>
+<div></div></div>
+<div class="chartline">
+<span>0</span>
+<div></div>
+</div>
+<div class="bars">
+<div><span></span><span></span><small>Jan</small></div>
+<div><span></span><span></span><small>Feb</small></div>
+<div><span></span><span></span><small>Mar</small></div>
+<div><span></span><span></span><small>Apr</small></div>
+<div><span></span><span></span><small>May</small></div>
+<div><span></span><span></span><small>Jun</small></div>
+</div></div></div>
+<div class="categorycard">
+<div class="sectionhead">
+<h2>Top Spending Categories</h2>
+</div>
+<div class="categorycontent">
+<div class="donut">
+<div>
+<strong id="categoryTotal"></strong>
+<span>Total Expenses</span></div></div>
+<div class="categorylist">
+<div><span><i></i>Food</span><strong>₹ 4,500</strong></div>
+<div><span><i></i>Travel</span><strong>₹ 3,000</strong></div>
+<div><span><i></i>Shopping</span><strong>₹ 2,500</strong></div>
+<div><span><i></i>Bills</span><strong>₹ 2,000</strong></div>
+<div><span><i></i>Entertainment</span><strong>₹ 1,500</strong></div>
+<div><span><i></i>Others</span><strong>₹ 1,500</strong></div></div></div></div>
+<div class="monthlycard">
+<div class="sectionhead">
+<h2>Monthly Summary</h2>
+<select id="monthSelect">
+<option>Sep 2025</option>
+</select>
+</div>
+<div class="monthlyitem incomeitem">
+<div class="moneyicon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+<span>Income</span>
+<strong id="monthlyIncome"></strong>
+</div>
+<div class="monthlyitem expenseitem">
+<div class="moneyicon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+<span>Expenses</span>
+<strong id="monthlyExpenses"></strong>
+</div>
+<div class="monthlyitem savingitem">
+<div class="moneyicon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+<span>Net Savings</span>
+<strong id="savingAmount"></strong>
+</div></div>
+</section>
+<section class="bottom">
+<div class="transactioncard">
+<div class="sectionhead">
+<h2>Recent Transactions</h2>
+<button class="categorybutton" id="categoryButton">
+<i class="fa-solid fa-plus"></i> New category
+</button>
+</div>
+<div class="filters">
+
+<div class="searchbox">
+<i class="fa-solid fa-magnifying-glass"></i>
+<input type="text" id="search" placeholder="Search by title or description...">
+</div>
+
+<select id="typeFilter">
+<option value="all">All Types</option>
+<option value="income">Income</option>
+<option value="expense">Expense</option>
+</select>
+
+<select id="categoryFilter">
+<option value="all">All Categories</option>
+</select>
+
+<select id="sortFilter">
+<option value="date">Sort by Date</option>
+<option value="amountHigh">Amount High to Low</option>
+<option value="amountLow">Amount Low to High</option>
+</select>
+
+</div>
+<div class="transactionhead">
+<span>Date</span>
+<span>Description</span>
+<span>Category</span>
+<span>Type</span>
+<span>Amount</span>
+</div>
+<div class="transactions" id="transactionList">
+<div class="transaction">
+<span>12 Sep 2025</span>
+<span>Grocery shopping</span>
+<span>Food</span>
+<span>Expense</span>
+<strong class="expenseamount">− ₹ 850</strong>
+</div>
+<div class="transaction">
+<span>10 Sep 2025</span>
+<span>Monthly salary</span>
+<span>Salary</span>
+<span>Income</span>
+<strong class="incomeamount">+ ₹ 35,000</strong>
+</div>
+<div class="transaction">
+<span>08 Sep 2025</span>
+<span>Netflix subscription</span>
+<span>Entertainment</span>
+<span>Expense</span>
+<strong class="expenseamount">− ₹ 499</strong>
+</div>
+<div class="transaction">
+<span>06 Sep 2025</span>
+<span>Freelance project</span>
+<span>Freelance</span>
+<span>Income</span>
+<strong class="incomeamount">+ ₹ 2,000</strong>
+</div>
+<div class="transaction">
+<span>04 Sep 2025</span>
+<span>Electricity bill</span>
+<span>Bills</span>
+<span>Expense</span>
+<strong class="expenseamount">− ₹ 1,200</strong>
+</div>
+<div class="transaction">
+<span>01 Sep 2025</span>
+<span>Flight tickets</span>
+<span>Travel</span>
+<span>Expense</span>
+<strong class="expenseamount">− ₹ 6,000</strong>
+</div></div></div>
+<div class="addcard">
+<h2>Add Transaction</h2>
+<form id="transactionForm">
+<label for="amount">Amount</label>
+<div class="inputbox">
+<span id="modalCurrency">₹</span>
+<input type="number" id="amount" placeholder="0.00">
+</div>
+<small id="amountError"></small>
+<label for="title">Description</label>
+<div class="inputbox">
+<input type="text" id="title" placeholder="e.g. Grocery shopping">
+</div>
+<small id="titleError"></small>
+<div class="twobox">
+<div>
+<label for="category">Category</label>
+<select id="category">
+<option value="">Select category</option>
+<option>Food</option>
+<option>Travel</option>
+<option>Shopping</option>
+<option>Bills</option>
+<option>Entertainment</option>
+<option>Salary</option>
+<option>Freelance</option>
+<option>Others</option>
+</select>
+</div>
+<div>
+<label for="type">Type</label>
+<select id="type">
+<option value="expense">Expense</option>
+<option value="income">Income</option>
+</select>
+</div>
+</div>
+<label for="date">Date</label>
+<div class="inputbox">
+<input type="date" id="date">
+</div>
+<small id="dateError"></small>
+<button type="submit">Add Transaction</button>
+</form>
+</div></section>
+</main>
+</div>
+<script src="dashboard.js"></script>
+<script src="transactions.js"></script>
+</body>
+</html>

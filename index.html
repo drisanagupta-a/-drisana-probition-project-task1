@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spendwise</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+<div class="logo">spendwisely<span>.</span></div>
+<div class="login">Already using Spendwise? <a href="#">Log in</a></div>
+</header>
+<main>
+<section class="intro">
+<div class="smalltext">YOUR MONEY, YOUR WAY</div>
+            <h1>Spend smart.<br>
+            <span>Live better.</span>
+            </h1>
+             <p>Organize your money, understand your spending,and make every rupee count.</p>
+            <div class="features">
+            <div><div class="icon">↗</div>
+            <span>Know where<br>your money goes</span></div><div>
+            <div class="icon">◎</div>
+            <span>Build smarter<br>money habits</span></div>
+            <div>
+            <div class="icon">✦</div>
+            <span>Spend on<br>what matters</span></div></div></section>
+            <section class="setupcard">
+            <div class="cardtop">
+            <span>01 / 03</span>
+            <div class="progress"><div></div>
+            </div>
+            </div>
+            <h2>Let's get to know<br>your money.</h2>
+            <p class="cardsubtitle">A few  details and you're ready to track</p>
+            <form id="setupForm">
+            <label for="name">What should we call you?</label>
+            <div class="inputbox">
+            <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+             <label for="currency">What currency do you use?</label>
+            <div class="inputbox selectbox">
+            <span id="currencySymbol">₹</span>
+            <select id="currency">
+            <option value="INR">INR — Indian Rupee</option>
+            <option value="USD">$ — US Dollar</option>
+            <option value="EUR">€ — Euro</option>
+            <option value="GBP">£ — British Pound</option>
+            <option value="JPY">¥ — Japanese Yen</option>
+            <option value="AUD">A$ — Australian Dollar</option>
+            </select></div>
+            <label for="balance">How much do you have right now?</label>
+            <div class="inputbox balance-box">
+            <span id="balanceSymbol">₹</span>
+            <input type="number" id="balance" placeholder="0.00" min="0" required></div>
+             <button type="submit">Let's get started<span>→</span></button>
+            </form>
+            <div class="privacy">
+            <span>⚠️</span> Your information stays private.</div>
+           </section>
+           </main>
+           <div class="floatingshape shapeone"></div>
+           <div class="floatingshape shapetwo"></div>
+          <script src="app.js"></script>
+
+</body>
+</html>
