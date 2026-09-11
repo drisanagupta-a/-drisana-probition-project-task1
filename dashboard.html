@@ -29,12 +29,12 @@
 </aside>
 <main class="main">
 <div class="topbar">
-<div class="mobilelogo">spendwise<span>.</span></div>
+<div class="mobilelogo">spendwisely<span>.</span></div>
 <div class="dates">
 <i class="fa-regular fa-calendar"></i>
-<span>01 Sep 2025</span>
+<span>01 Sep 2026</span>
 <span>−</span>
-<span>30 Sep 2025</span>
+<span>30 Sep 2026</span>
 <i class="fa-solid fa-chevron-down"></i>
 </div>
 <div class="profile">
@@ -108,18 +108,20 @@
 <h2>Top Spending Categories</h2>
 </div>
 <div class="categorycontent">
-<div class="donut">
-<div>
+<div class="donut"><div>
 <strong id="categoryTotal"></strong>
-<span>Total Expenses</span></div></div>
-<div class="categorylist">
+<span>Total Expenses</span>
+</div>
+</div>
 <div class="categorylist" id="categoryList"></div>
-</div></div>
+</div>
+</div>
+
 <div class="monthlycard">
+
 <div class="sectionhead">
 <h2>Monthly Summary</h2>
 <select id="monthSelect">
-<option></option>
 </select>
 </div>
 <div class="monthlyitem incomeitem">
@@ -142,33 +144,33 @@
 <div class="transactioncard">
 <div class="sectionhead">
 <h2>Recent Transactions</h2>
-<button class="categorybutton" id="categoryButton">
+<button type="button" class="categoryButton" id="categoryButton">
 <i class="fa-solid fa-plus"></i> New category
 </button>
 </div>
 <div class="filters">
-
+    <div class="datefilter">
+    <input type="date" id="startDate">
+    <span>to</span>
+    <input type="date" id="endDate">
+    </div>
 <div class="searchbox">
 <i class="fa-solid fa-magnifying-glass"></i>
 <input type="text" id="search" placeholder="Search by title or description...">
 </div>
-
 <select id="typeFilter">
 <option value="all">All Types</option>
 <option value="income">Income</option>
 <option value="expense">Expense</option>
 </select>
-
 <select id="categoryFilter">
 <option value="all">All Categories</option>
 </select>
-
 <select id="sortFilter">
 <option value="date">Sort by Date</option>
 <option value="amountHigh">Amount High to Low</option>
 <option value="amountLow">Amount Low to High</option>
 </select>
-
 </div>
 <div class="transactionhead">
 <span>Date</span>
@@ -179,43 +181,43 @@
 </div>
 <div class="transactions" id="transactionList">
 <div class="transaction">
-<span>12 Sep 2025</span>
+<span>12 Sep 2026</span>
 <span>Grocery shopping</span>
 <span>Food</span>
 <span>Expense</span>
 <strong class="expenseamount">− ₹ 850</strong>
 </div>
 <div class="transaction">
-<span>10 Sep 2025</span>
+<span>10 Sep 2026</span>
 <span>Monthly salary</span>
 <span>Salary</span>
 <span>Income</span>
 <strong class="incomeamount">+ ₹ 35,000</strong>
 </div>
 <div class="transaction">
-<span>08 Sep 2025</span>
-<span>Netflix subscription</span>
+<span>08 Sep 2026</span>
+<span>subscription</span>
 <span>Entertainment</span>
 <span>Expense</span>
 <strong class="expenseamount">− ₹ 499</strong>
 </div>
 <div class="transaction">
-<span>06 Sep 2025</span>
-<span>Freelance project</span>
+<span>06 Sep 2026</span>
+<span> project</span>
 <span>Freelance</span>
 <span>Income</span>
 <strong class="incomeamount">+ ₹ 2,000</strong>
 </div>
 <div class="transaction">
-<span>04 Sep 2025</span>
+<span>04 Sep 2026</span>
 <span>Electricity bill</span>
 <span>Bills</span>
 <span>Expense</span>
 <strong class="expenseamount">− ₹ 1,200</strong>
 </div>
 <div class="transaction">
-<span>01 Sep 2025</span>
-<span>Flight tickets</span>
+<span>01 Sep 2026</span>
+<span> tickets</span>
 <span>Travel</span>
 <span>Expense</span>
 <strong class="expenseamount">− ₹ 6,000</strong>
@@ -268,6 +270,6 @@
 </main>
 </div>
 <script src="dashboard.js"></script>
-<script src="transactions.js"></script>
+<script src="transaction.js"></script>
 </body>
 </html>

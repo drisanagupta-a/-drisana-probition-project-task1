@@ -2,6 +2,8 @@ const search=document.querySelector("#search")
 const typefilter=document.querySelector("#typeFilter")
 const categoryfilter=document.querySelector("#categoryFilter")
 const sortfilter=document.querySelector("#sortFilter")
+const startdate=document.querySelector("#startDate")
+const enddate=document.querySelector("#endDate")
 const transactionlist=document.querySelector("#transactionList")
 const filtertransactions=()=>{
     let list=[...transactions]
@@ -11,19 +13,24 @@ const filtertransactions=()=>{
     const sort=sortfilter.value
     if(searchtext){
         list=list.filter(item=>{
-            return item.title.toLowerCase().includes(searchtext)
-        })
+            return item.title.toLowerCase().includes(searchtext)})
     }
     if(selectedtype!=="all"){
         list=list.filter(item=>{
-            return item.type===selectedtype
-        })
+            return item.type===selectedtype})
     }
     if(selectedcategory!=="all"){
         list=list.filter(item=>{
-            return item.category===selectedcategory
-        })
+            return item.category===selectedcategory })
     }
+    if(startdate.value){
+    list=list.filter(item=>{
+        return item.date>=startdate.value })
+}
+if(enddate.value){
+    list=list.filter(item=>{
+        return item.date<=enddate.value })
+}
     if(sort==="date"){
         list.sort((a,b)=>new Date(b.date)-new Date(a.date))
     }
@@ -60,6 +67,8 @@ search.addEventListener("input",filtertransactions)
 typefilter.addEventListener("change",filtertransactions)
 categoryfilter.addEventListener("change",filtertransactions)
 sortfilter.addEventListener("change",filtertransactions)
+startdate.addEventListener("change",filtertransactions)
+enddate.addEventListener("change",filtertransactions)
 const updatecategories=()=>{
     const categories=[...new Set(transactions.map(item=>item.category))]
     categoryfilter.innerHTML='<option value="all">All Categories</option>'

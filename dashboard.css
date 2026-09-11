@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -1281,4 +1282,103 @@ body{
     .categorybutton i{
         font-size:.7rem;
     }
+}
+.bars{
+    position:absolute;
+    left:3rem;
+    right:1rem;
+    bottom:1.8rem;
+    top:.5rem;
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-around;
+    gap:.5rem;
+}
+.bargroup{
+    height:100%;
+    flex:1;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    gap:.15rem;
+    position:relative;
+}
+.bar{
+    width:.45rem;
+    min-height:.15rem;
+    border-radius:.4rem .4rem 0 0;
+}
+.incomeBar{
+    background:#55b983;
+}
+.expenseBar{
+    background:#ed5c8c;
+}
+.bargroup span{
+    position:absolute;
+    bottom:-1.5rem;
+    font-size:.65rem;
+    color:#8585a5;
+}
+.categoryButton{
+    border:1px solid #d9daf0;
+    background:#fff;
+    color:#20205c;
+    padding:.65rem 1rem;
+    border-radius:.7rem;
+    font-family:"DM Sans",sans-serif;
+    font-size:.85rem;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:.45rem;
+    transition:.25s ease;
+}
+.categoryButton i{
+    color:#5657ff;
+    font-size:.8rem;
+}
+.categoryButton:hover{
+    background:#5657ff;
+    color:#fff;
+    border-color:#5657ff;
+    transform:translateY(-.1rem);
+    box-shadow:0 .4rem 1rem rgba(86,87,255,.18);
+}
+.categoryButton:hover i{
+    color:#fff;
+}
+.categoryButton:active{
+    transform:translateY(0);
+}
+.transactionactions{
+    display:flex;
+    gap:.4rem;
+}
+.editbutton,.deletebutton{
+    width:2rem;
+    height:2rem;
+    border:1px solid #dedff1;
+    border-radius:.5rem;
+    background:#fff;
+    color:#5657ff;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s ease;
+}
+.editbutton:hover{
+    background:#5657ff;
+    color:#fff;
+    border-color:#5657ff;
+}
+.deletebutton{
+    color:#ed5c8c;
+}
+.deletebutton:hover{
+    background:#ed5c8c;
+    color:#fff;
+    border-color:#ed5c8c;
 }

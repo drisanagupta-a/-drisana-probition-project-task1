@@ -1,16 +1,55 @@
 let transactions=JSON.parse(localStorage.getItem("transactions"))
 let editingid=null
+let categories=JSON.parse(localStorage.getItem("categories"))||[
+    "Food",
+    "Travel",
+    "Shopping",
+    "Bills",
+    "Entertainment",
+    "Salary",
+    "Freelance",
+    "Others"]
+const savecategories=()=>{
+    localStorage.setItem("categories",JSON.stringify(categories))
+}
+const categorybutton=document.querySelector("#categoryButton")
+const categoryselect=document.querySelector("#category")
+
+categorybutton.addEventListener("click",e=>{
+    e.preventDefault()
+    const newcategory=window.prompt("Enter a new category")
+
+    if(newcategory===null){
+        return
+    }
+    const categoryname=newcategory.trim()
+    if(!categoryname){
+        alert("Please enter a category name")
+        return
+    }
+    if(categories.some(item=>item.toLowerCase()===categoryname.toLowerCase())){
+        alert("Category already exists")
+        return
+    }
+    categories.push(categoryname)
+    savecategories()
+    const option=document.createElement("option")
+    option.value=categoryname
+    option.textContent=categoryname
+    categoryselect.appendChild(option)
+    categoryselect.value=categoryname
+})
 const save=()=>{
     localStorage.setItem("transactions",JSON.stringify(transactions))
 }
 if(!transactions){
     transactions=[
-        {id:1,title:"Grocery shopping",amount:850,type:"expense",category:"Food",date:"2025-09-12"},
-        {id:2,title:"Monthly salary",amount:35000,type:"income",category:"Salary",date:"2025-09-10"},
-        {id:3,title:"Netflix subscription",amount:499,type:"expense",category:"Entertainment",date:"2025-09-08"},
-        {id:4,title:"Freelance project",amount:2000,type:"income",category:"Freelance",date:"2025-09-06"},
-        {id:5,title:"Electricity bill",amount:1200,type:"expense",category:"Bills",date:"2025-09-04"},
-        {id:6,title:"Flight tickets",amount:6000,type:"expense",category:"Travel",date:"2025-09-01"}
+        {id:1,title:"Grocery shopping",amount:850,type:"expense",category:"Food",date:"2026-09-12"},
+        {id:2,title:"Monthly salary",amount:35000,type:"income",category:"Salary",date:"2026-09-10"},
+        {id:3,title:" subscription",amount:499,type:"expense",category:"Entertainment",date:"2026-09-08"},
+        {id:4,title:" project",amount:2000,type:"income",category:"Freelance",date:"2026-09-06"},
+        {id:5,title:"Electricity bill",amount:1200,type:"expense",category:"Bills",date:"2026-09-04"},
+        {id:6,title:"tickets",amount:6000,type:"expense",category:"Travel",date:"2026-09-01"}
     ]
     save()
 }
@@ -25,8 +64,7 @@ const updatesummary=()=>{
             income+=Number(item.amount)
         }else{
             expense+=Number(item.amount)
-        }
-    })
+        }})
     const startingbalance=Number(localStorage.getItem("balance"))||0
     const balance=startingbalance+income-expense
     totalincome.textContent="₹ "+income.toLocaleString("en-IN")
@@ -102,6 +140,36 @@ monthselect.addEventListener("change",updatemonthlysummary)
 updatemonths()
 updatemonthlysummary()
 
+const updatechart=()=>{
+    const chartbars=document.querySelector("#chartBars")
+    chartbars.innerHTML=""
+    const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
+    months.forEach((month,index)=>{
+    let income=0
+    let expense=0
+    transactions.forEach(item=>{
+    const date=new Date(item.date)
+     if(date.getMonth()===index){
+     if(item.type==="income"){
+     income+=Number(item.amount)
+    }else{
+    expense+=Number(item.amount)
+                }
+            }
+        })
+        const max=50000
+        const incomeheight=Math.min((income/max)*100,100)
+        const expenseheight=Math.min((expense/max)*100,100)
+        const group=document.createElement("div")
+        group.className="bargroup"
+        group.innerHTML=`
+            <div class="bar incomeBar" style="height:${incomeheight}%"></div>
+            <div class="bar expenseBar" style="height:${expenseheight}%"></div>
+            <span>${month}</span>
+        `
+            chartbars.appendChild(group)})
+}
+
 const transactionform=document.querySelector("#transactionForm")
 transactionform.addEventListener("submit",e=>{
     e.preventDefault()
@@ -159,7 +227,9 @@ transactionform.addEventListener("submit",e=>{
     updatemonths()
     updatemonthlysummary()
     updatecategorysummary()
+    updatechart()
     transactionform.reset()
+    
     transactionform.querySelector("button[type='submit']").textContent="Add Transaction"
 })
 document.querySelector("#transactionList").addEventListener("click",e=>{
@@ -190,8 +260,10 @@ document.querySelector("#transactionList").addEventListener("click",e=>{
             updatemonths()
             updatemonthlysummary()
             updatecategorysummary()
+            updatechart()
         }
     }
 })
 updatesummary()
 updatecategorysummary()
+updatechart()
