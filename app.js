@@ -20,6 +20,7 @@ currency.addEventListener("change", () => {
     symbol.textContent = symbols[currency.value]
     localStorage.setItem("currency", currency.value)
 })
+
 name.addEventListener("input", () => {
     localStorage.setItem("name", name.value)
 })
